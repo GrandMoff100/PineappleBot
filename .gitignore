@@ -1,0 +1,4 @@
+*.toml
+*.lock
+.replit
+*.py[cod]
