@@ -23,21 +23,23 @@ class PineappleBot(commands.Bot):
     async def on_ready(self):
         print("Ready as {} | ID: {}".format(self.user, self.user.id))
 
-
+    async def on_message(self, message):
+        
+        await self.process_commands(message)
 
 pineapples = pineapple()
 bot = PineappleBot(
-    'p'
+    '?'
 )
 
 
-@bot.command(name='ineapple', aliases=['p'])
+@bot.command(name='pineapple', aliases=['p'])
 async def pineapplecmd(ctx):
     await ctx.send(pineapples.__next__())
 
 
 
-@bot.command(name='ineapples', aliases=['s'])
+@bot.command(name='pineapples', aliases=['ps'])
 async def pineapplescmd(ctx, amount: int = None):
     if amount is None:
         amount = random.randint(1,5)
